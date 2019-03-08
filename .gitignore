@@ -105,4 +105,5 @@ tmp
 .jabba
 node_modules
 build
+dist
 data
