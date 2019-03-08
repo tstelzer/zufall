@@ -1,14 +1,12 @@
 import * as T from './types';
 
-type NonZeroNumber = number;
-
 /**
  * Returns an `n`-digit number.
  */
-export const digits = (rng: T.RNG) => (length: NonZeroNumber) => {
+export const digits = (rng: T.RNG) => (length: T.NonZeroNumber) => {
   if (length < 1) {
     throw new TypeError(
-      `digits: argument "length" must be a number greater than 0, but was ${length}.`,
+      `argument "length" must be a number greater than 0, but was ${length}.`,
     );
   }
 
