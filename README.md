@@ -33,7 +33,7 @@ random.number.quick();
 random.digits(10) // Always 8709490569
 random.digits(10) // Always 1847935272
 
-// Pseudo-random number between `min` (exclusive) and `max` (inclusive).
+// Pseudo-random number between min and max (both inclusive).
 random.between(0, 100) // Always 86
 random.between(0, 100) // Always 9
 random.between(0, 100) // Always 99
