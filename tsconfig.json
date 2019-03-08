@@ -1,21 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "strict": true,
     "lib": ["es2018", "esnext"],
     "module": "commonjs",
-    "target": "es2017",
-    "outDir": "./lib",
-    "pretty": true,
+    "target": "es5",
+    "outDir": "lib",
+    "pretty": false,
     "declaration": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
-    "sourceMap": true,
-    "typeRoots": ["./typings", "./node_modules/@types"]
+    "sourceMap": true
   },
   "include": ["src/**/*", "src/index.ts"],
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules", "lib"]
 }
