@@ -5,7 +5,7 @@
     "lib": ["es2018", "esnext"],
     "module": "commonjs",
     "target": "es2017",
-    "outDir": "./dist",
+    "outDir": "./lib",
     "pretty": true,
     "declaration": true,
     "removeComments": true,
