@@ -1,12 +1,12 @@
-import * as seedrandom from 'seedrandom';
+import * as fromSeed from 'seedrandom';
 
 import {between, digits} from './number';
 import OpenSimplexNoise from './open-simplex-noise';
-import {alphanumeric} from './seed';
+import {generateAlphabeticSeed} from './seed';
 
 const zufall = (userSeed?: string) => {
-  const seed = userSeed || alphanumeric(7);
-  const rng = seedrandom(seed);
+  const seed = userSeed || generateAlphabeticSeed(fromSeed())(7);
+  const rng = fromSeed(seed);
 
   return {
     number: rng,

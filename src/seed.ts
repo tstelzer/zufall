@@ -1,14 +1,13 @@
-import * as seedrandom from 'seedrandom';
-
 import {between} from './number';
+import * as T from './types';
 
 /**
- * Generates human readable, fixed size seed value.
+ * Generates fixed size, alphabetic seed value.
  */
-export const alphanumeric = (length: number) => {
+export const generateAlphabeticSeed = (rng: T.RNG) => (length: number) => {
   let result = [];
   for (let n = 0; n < length; n++) {
-    result.push(String.fromCharCode(between(seedrandom())(65, 90)));
+    result.push(String.fromCharCode(between(rng)(65, 90)));
   }
   return result.join('');
 };
