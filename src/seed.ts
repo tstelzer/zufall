@@ -1,10 +1,10 @@
 import {between} from './number';
-import * as T from './types';
+import * as T from './zufall';
 
 /**
  * Generates fixed size, alphabetic seed value.
  */
-export const alphabetic = (rng: T.RNG) => (length: T.NonZeroNumber) => {
+export const alphabetic = (rng: T.prng) => (length: T.NonZeroNumber) => {
   if (length < 1) {
     throw new TypeError(
       `argument "length" must be a number greater than 0, but was ${length}.`,

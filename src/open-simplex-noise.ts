@@ -26,7 +26,7 @@ import {
 } from './constants';
 
 import {digits} from './number';
-import * as T from './types';
+import * as T from './zufall';
 
 class Contribution2 {
   public dx: number;
@@ -91,7 +91,7 @@ class Contribution4 {
   }
 }
 
-function setup(rng: T.RNG) {
+function setup(rng: T.prng) {
   let lookup2D: Contribution2[];
   let lookup3D: Contribution3[];
   let lookup4D: Contribution4[];
@@ -238,7 +238,7 @@ function setup(rng: T.RNG) {
   };
 }
 
-export const openSimplexNoise = (rng: T.RNG) => {
+export const openSimplexNoise = (rng: T.prng) => {
   let {lookup2D, lookup3D, lookup4D, perm, perm2D, perm3D, perm4D} = setup(rng);
 
   const noise2D = (x: number, y: number): number => {
