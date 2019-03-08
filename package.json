@@ -1,11 +1,23 @@
 {
   "name": "zufall",
-  "version": "0.1.0",
-  "main": "src/index.ts",
+  "version": "1.0.0",
+  "description": "Generate random values and noise.",
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts -D",
     "test": "mocha --require ts-node/register --watch-extensions ts,tsx 'test/**/*.{ts,tsx}' -w --reporter min"
+  },
+  "license": "Unlicense",
+  "keywords": ["noise", "random"],
+  "files": ["dist"],
+  "bugs": {
+    "url": "https://github.com/tstelzer/zufall/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tstelzer/zufall.git"
   },
   "author": "Timm Stelzer <timmstelzer@gmail.com>",
   "devDependencies": {
