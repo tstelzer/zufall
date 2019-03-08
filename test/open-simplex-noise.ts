@@ -57,6 +57,15 @@ describe('openSimplexNoise', () => {
     const seedsA = ['BANANA', 'APPLE', 'PINEAPPLE', 'ORANGE'];
     const seedsB = ['MERCEDES', 'HONDA', 'HYUNDAI', 'VW'];
 
+    let a2D = [];
+    let b2D = [];
+
+    let a3D = [];
+    let b3D = [];
+
+    let a4D = [];
+    let b4D = [];
+
     for (const seedA of seedsA) {
       for (const seedB of seedsB) {
         const {
@@ -71,19 +80,20 @@ describe('openSimplexNoise', () => {
           noise4D: noise4DB,
         } = openSimplexNoise(fromSeed(seedB));
 
-        const a2D = noise2DA(1, 2);
-        const b2D = noise2DB(1, 2);
-        expect(a2D).not.to.equal(b2D);
+        a2D.push(noise2DA(1, 2));
+        b2D.push(noise2DB(1, 2));
 
-        const a3D = noise3DA(1, 2, 3);
-        const b3D = noise3DB(1, 2, 3);
-        expect(a3D).not.to.equal(b3D);
+        a3D.push(noise3DA(1, 2, 3));
+        b3D.push(noise3DB(1, 2, 3));
 
-        const a4D = noise4DA(1, 2, 3, 4);
-        const b4D = noise4DB(1, 2, 3, 4);
-        expect(a4D).not.to.equal(b4D);
+        a4D.push(noise4DA(1, 2, 3, 4));
+        b4D.push(noise4DB(1, 2, 3, 4));
       }
     }
+
+    expect(a2D).not.to.deep.equal(b2D);
+    expect(a3D).not.to.deep.equal(b3D);
+    expect(a4D).not.to.deep.equal(b4D);
   });
 
   it('returns similar values for similar inputs', () => {
