@@ -20,6 +20,7 @@ export const digits = (rng: T.RNG) => (length: NonZeroNumber) => {
 
 /**
  * Returns a number between `min` and `max`.
+ * FIXME: What if max < min?
  */
 export const between = (rng: T.RNG) => (min: number, max: number) =>
   Math.floor(rng() * (max - min + 1) + min);
