@@ -1,19 +1,23 @@
 import * as fromSeed from 'seedrandom';
 
 import {between, digits} from './number';
-import OpenSimplexNoise from './open-simplex-noise';
+import openSimplexNoise from './open-simplex-noise';
 import {generateAlphabeticSeed} from './seed';
 
-const zufall = (userSeed?: string) => {
+export const zufall = (userSeed?: string) => {
   const seed = userSeed || generateAlphabeticSeed(fromSeed())(7);
   const rng = fromSeed(seed);
 
+  const {noise2D, noise3D, noise4D} = openSimplexNoise(rng);
+
   return {
-    number: rng,
     seed,
+    number: rng,
     between: between(rng),
     digits: digits(rng),
-    noise: new OpenSimplexNoise(rng),
+    noise2D,
+    noise3D,
+    noise4D,
   };
 };
 

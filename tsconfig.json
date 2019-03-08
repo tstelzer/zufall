@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "strict": false,
+    "strict": true,
     "lib": ["es2018", "esnext"],
     "module": "commonjs",
     "target": "es2017",
@@ -11,6 +11,8 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "sourceMap": true,
     "typeRoots": ["./typings", "./node_modules/@types"]
   },
