@@ -2,6 +2,14 @@
 
 Generate random values and noise.
 
+## Installation
+
+```sh
+yarn add @tstelzer/zufall
+# or
+npm install @tstelzer/zufall
+```
+
 ## Usage
 
 ```typescript
