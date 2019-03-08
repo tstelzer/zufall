@@ -21,6 +21,8 @@ import {
   STRETCH_3D,
   STRETCH_4D,
 } from './constants';
+
+import {digits} from './number';
 import * as T from './types';
 
 class Contribution2 {
@@ -86,12 +88,6 @@ class Contribution4 {
   }
 }
 
-function shuffleSeed(seed: Uint32Array): Uint32Array {
-  const newSeed = new Uint32Array(1);
-  newSeed[0] = seed[0] * 1664525 + 1013904223;
-  return newSeed;
-}
-
 export default class OpenSimplexNoise {
   private lookup2D: Contribution2[];
   private lookup3D: Contribution3[];
@@ -101,7 +97,7 @@ export default class OpenSimplexNoise {
   private perm3D: Uint8Array;
   private perm4D: Uint8Array;
 
-  constructor(clientSeed: number) {
+  constructor(rng: T.RNG) {
     this.initialize();
     this.perm = new Uint8Array(256);
     this.perm2D = new Uint8Array(256);
@@ -111,13 +107,10 @@ export default class OpenSimplexNoise {
     for (let i = 0; i < 256; i++) {
       source[i] = i;
     }
-    let seed = new Uint32Array(1);
-    seed[0] = clientSeed;
-    seed = shuffleSeed(shuffleSeed(shuffleSeed(seed)));
+    let seed = digits(rng)(13);
     for (let i = 255; i >= 0; i--) {
-      seed = shuffleSeed(seed);
       const r = new Uint32Array(1);
-      r[0] = (seed[0] + 31) % (i + 1);
+      r[0] = (seed + 31) % (i + 1);
       if (r[0] < 0) {
         r[0] += i + 1;
       }
@@ -126,54 +119,8 @@ export default class OpenSimplexNoise {
       this.perm3D[i] = (this.perm[i] % 24) * 3;
       this.perm4D[i] = this.perm[i] & 0xfc;
       source[r[0]] = source[i];
+      seed = digits(rng)(13);
     }
-  }
-
-  public array2D(width: number, height: number): number[][] {
-    const output = new Array(width);
-    for (let x = 0; x < width; x++) {
-      output[x] = new Array(height);
-      for (let y = 0; y < height; y++) {
-        output[x][y] = this.noise2D(x, y);
-      }
-    }
-    return output;
-  }
-
-  public array3D(width: number, height: number, depth: number): number[][][] {
-    const output = new Array(width);
-    for (let x = 0; x < width; x++) {
-      output[x] = new Array(height);
-      for (let y = 0; y < height; y++) {
-        output[x][y] = new Array(depth);
-        for (let z = 0; z < depth; z++) {
-          output[x][y][z] = this.noise3D(x, y, z);
-        }
-      }
-    }
-    return output;
-  }
-
-  public array4D(
-    width: number,
-    height: number,
-    depth: number,
-    wLength: number,
-  ): number[][][][] {
-    const output = new Array(width);
-    for (let x = 0; x < width; x++) {
-      output[x] = new Array(height);
-      for (let y = 0; y < height; y++) {
-        output[x][y] = new Array(depth);
-        for (let z = 0; z < depth; z++) {
-          output[x][y][z] = new Array(wLength);
-          for (let w = 0; w < wLength; w++) {
-            output[x][y][z][w] = this.noise4D(x, y, z, w);
-          }
-        }
-      }
-    }
-    return output;
   }
 
   public noise2D(x: number, y: number): number {
