@@ -1,3 +1,6 @@
+/**
+ * Original source: https://github.com/joshforisha/open-simplex-noise-js
+ */
 import {
   base2D,
   base3D,

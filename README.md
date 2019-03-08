@@ -7,7 +7,8 @@ Generate random values and noise.
 ```typescript
 import makeRandom from 'zufall';
 
-// Building with a static seed will always return predictable results ...
+// Building with a static seed will
+// always return predictable results ...
 const random = makeRandom('SEED');
 
 // Static seed value for reference.
@@ -38,6 +39,18 @@ random.between(0, 100) // Always 86
 random.between(0, 100) // Always 9
 random.between(0, 100) // Always 99
 
-// ... omitting a seed will generate pseudo-random results every time.
+// Open Simplex Noise.
+// Note: Implementation is essentially copied from
+// https://github.com/joshforisha/open-simplex-noise-js
+// with two additions:
+// 1. The internal RNG was replaced.
+// 2. The public interface is functional instead of OO.
+// 3. The `arrayND` methods have been omitted.
+random.noise2D(0, 1) // Always -0.27409970004637957
+random.noise3D(0, 1, 2) // Always -0.08090614886731362
+random.noise4D(0, 1, 2, 4) // Always -0.3194015527038483
+
+// Omitting a seed will generate practically
+// unpredictable results every time.
 const random = makeRandom();
 ```
