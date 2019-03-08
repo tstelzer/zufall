@@ -1,5 +1,5 @@
 {
-  "name": "zufall",
+  "name": "@tstelzer/zufall",
   "version": "1.0.0",
   "description": "Generate random values and noise.",
   "main": "lib/index.js",
@@ -10,8 +10,13 @@
     "test": "mocha --require ts-node/register --watch-extensions ts,tsx 'test/**/*.{ts,tsx}' -w --reporter min"
   },
   "license": "Unlicense",
-  "keywords": ["noise", "random"],
-  "files": ["lib"],
+  "keywords": [
+    "noise",
+    "random"
+  ],
+  "files": [
+    "lib"
+  ],
   "bugs": {
     "url": "https://github.com/tstelzer/zufall/issues"
   },
@@ -36,5 +41,10 @@
   },
   "dependencies": {
     "seedrandom": "3.0.1"
+  },
+  "homepage": "https://github.com/tstelzer/zufall#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
