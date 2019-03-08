@@ -13,7 +13,7 @@ npm install @tstelzer/zufall
 ## Usage
 
 ```typescript
-import makeRandom from 'zufall';
+import makeRandom from '@tstelzer/zufall';
 
 // Building with a static seed will
 // always return predictable results ...
