@@ -14,7 +14,6 @@ const random = makeRandom('SEED');
 // Static seed value for reference.
 random.seed; // 'SEED'
 
-
 // Pseudo-random number (generic).
 random.number(); // Always 0.8566100631751684
 random.number(); // Always 0.09421503014329177
@@ -53,4 +52,31 @@ random.noise4D(0, 1, 2, 4) // Always -0.3194015527038483
 // Omitting a seed will generate practically
 // unpredictable results every time.
 const random = makeRandom();
+```
+
+## Build locally
+
+Clone repository.
+
+```sh
+git clone github.com/tstelzer/zufall
+```
+
+Install dependencies.
+
+```sh
+cd zufall
+yarn
+# or
+npm install
+```
+
+## Run test suite
+
+Assuming you have cloned the repository and installed dependencies.
+
+```sh
+yarn test
+# or
+npm test
 ```
