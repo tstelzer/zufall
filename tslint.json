@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "prettier": [true, ".prettierrc.json"],
+    "no-unnecessary-type-assertion": false,
+    "eofline": true,
+    "arrow-return-shorthand": true,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "no-trailing-whitespace": true,
+    "interface-over-type-literal": false,
+    "max-classes-per-file": false,
+    "no-submodule-imports": false,
+    "one-variable-per-declaration": false,
+    "no-duplicate-imports": false,
+    "no-bitwise": false,
+    "no-shadowed-variable": false,
+    "variable-name": false,
+
+    "prefer-const": false,
+    "no-console": false,
+    "no-implicit-dependencies": false,
+    "no-unused-expression": false
+  }
+}

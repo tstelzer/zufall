@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "lib": ["es2018", "esnext"],
+    "module": "commonjs",
+    "target": "es2017",
+    "outDir": "./dist",
+    "pretty": true,
+    "declaration": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "typeRoots": ["./typings", "./node_modules/@types"]
+  },
+  "include": ["src/**/*", "src/index.ts"],
+  "exclude": ["node_modules", "build"]
+}
